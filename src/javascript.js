@@ -16,18 +16,19 @@ function quizApp() {
 
     let startTime = 10;
     let score = 0;
-    startbtn.setAttribute("style", "display:none")
+
+
 
     // THEN a timer starts and I am presented with a question
     //counter that starts from 120 counts down; if user gets a question wrong subtract -5
     //timer starts when startbtn is clicked
-
     var timer = setInterval(() => {
         startTime--;
+        startbtn.setAttribute("style", "display:none")
         timehtml.textContent = `${startTime} seconds remaining`
+
         scorehtml.textContent = `Score: ${score}`
         if (startTime < 0) {
-
 
             clearInterval(timer);
             timehtml.textContent = "TIME'S UP";
