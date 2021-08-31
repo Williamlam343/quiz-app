@@ -1,3 +1,90 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+main {
+  margin: 2rem;
+  background-color: #161616;
+  color: whitesmoke;
+  width: fit-content;
+  height: auto;
+  position: absolute;
+  left: 5%;
+}
+
+aside {
+  width: fit-content;
+  flex: 0 1;
+}
+div.wrapper {
+  width: 100%;
+  display: flex;
+  padding: 0px;
+}
+.wrapper1 {
+  width: fit-content;
+  display: flex;
+  padding: 0px;
+}
+
+div.item {
+  flex: 0 0 auto;
+  padding: 5px 0 0 0;
+  margin: 0px;
+  min-width: 4rem;
+  min-height: 4rem;
+  text-align: center;
+  border: solid white 1px;
+  justify-content: center;
+  display: flex;
+}
+
+#element:focus {
+  background-color: dimgray;
+  border: orange 1px solid;
+  position: relative;
+  z-index: 1;
+}
+#element:hover {
+  cursor: pointer;
+  background-color: dimgray;
+  border: orange 1px solid;
+}
+
+.rowfirst {
+  justify-content: space-between;
+  text-align: center;
+}
+
+.align-right {
+  justify-content: flex-end;
+}
+
+.shift-right {
+  left: 50%;
+}
+
+.botelements {
+  position: relative;
+  flex-wrap: wrap;
+  width: auto;
+}
+
+.symbol {
+  align-self: flex-end;
+  position: absolute;
+  padding-bottom: 0.6rem;
+  font-size: 24px;
+}
+
+#elementBox {
+  display: block;
+  position: absolute;
+  right: 18%;
+  top: 30%;
+}
+
+div.clear-border {
+  border: none;
+  border-bottom: solid white 1px;
+}

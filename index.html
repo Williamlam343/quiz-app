@@ -10,7 +10,7 @@
     <title>Quiz App</title>
   </head>
 
-  <body class="bg-warmgray-800 text-black w-full h-full">
+  <body class="bg-warmgray-800 text-base text-black w-full h-full">
     <!--Timer/Score Display  -->
     <header class="flex justify-between">
       <div
@@ -26,7 +26,9 @@
           w-auto
           text-amber-300
         "
-      ></div>
+      >
+        Score:
+      </div>
       <div
         id="time"
         class="
@@ -45,6 +47,7 @@
     <!-- Question Display -->
     <section class="flex w-auto m-4 md:m-10 h-auto justify-center">
       <div
+        id="questionDisplay"
         class="
           shadow-2xl
           border-solid border-4 border-warmgray-600
@@ -68,23 +71,31 @@
             rounded-xl
             m-2
             border-1 border-solid border-black
+            text-xl
           "
         >
-          Question:
+          Chemistry Quiz
         </div>
         <div
           id="answer-a"
-          class="cursor-pointer flex-auto w-auto h-20 m-3"
+          data-answer="a"
+          class="answer flex-auto w-auto h-20 m-3"
         ></div>
-        <div id="answer-b" class="cursor-pointer flex-auto w-auto h-20 m-3">
-          <span></span>
-        </div>
-        <div id="answer-c" class="cursor-pointer flex-auto w-auto h-20 m-3">
-          <span></span>
-        </div>
-        <div id="answer-d" class="cursor-pointer flex-auto w-auto h-20 m-3">
-          <span></span>
-        </div>
+        <div
+          id="answer-b"
+          data-answer="b"
+          class="answer flex-auto w-auto h-20 m-3"
+        ></div>
+        <div
+          id="answer-c"
+          data-answer="c"
+          class="answer flex-auto w-auto h-20 m-3"
+        ></div>
+        <div
+          id="answer-d"
+          data-answer="d"
+          class="answer flex-auto w-auto h-20 m-3"
+        ></div>
       </div>
     </section>
     <!-- Start Button -->
@@ -106,6 +117,240 @@
         Start!
       </button>
     </section>
+
+    <div>
+     <form id="scoreRecord" method="POST">
+        <input id="names"
+        type="textarea"
+        placeholder="initials"
+        class="text-center text-black"
+         />
+        </form>
+    </div>
+
+    <div class="flex text-regular justify-center">
+     <details class="text-white  relative m-5 text-center">
+      <div id="hiScore" class="">Hi-Scores:</div>
+      <div
+        class="
+        shadow-2xl
+          align-center
+          flex
+          relative
+          max-w-min
+          text-regular text-black
+          ring-4 ring-white ring-opacity-50
+          justify-center
+          my-2
+          rounded-xl
+        "
+      >
+        <div
+          id="intitals"
+          class="
+            flex-auto
+            align-center
+            text-white
+            w-20
+            h-auto
+            bg-warmgray-600
+            rounded-l-xl
+          "
+        >
+          WL
+        </div>
+        <div id="score" class="flex-auto w-40 h-auto rounded-r-xl bg-warmgray-200">
+          1000
+        </div>
+      </div>
+    </div>
+    </details>
+
+    <!-- <details class="text-white relative m-5 h-auto w-auto text-center">
+      <div class="flex justify-center w-auto flex-wrap ptchart">
+        <aside class="flexbox justify-center">
+          <div class="wrapper rowfirst">
+            <div tabindex="0" class="item rowfirst" id="element">
+              1 <span class="symbol">H</span>
+            </div>
+            <div tabindex="0" class="item rowfirst" id="element">
+              2 <span class="symbol">He</span>
+            </div>
+          </div>
+          <div class="wrapper">
+            <div class="wrapper">
+              <div tabindex="0" class="item" id="element">Li</div>
+              <div tabindex="0" class="item" id="element">Be</div>
+            </div>
+            <div class="wrapper align-right">
+              <div tabindex="0" class="item" id="element">B</div>
+              <div tabindex="0" class="item" id="element">C</div>
+              <div tabindex="0" class="item" id="element">N</div>
+              <div tabindex="0" class="item" id="element">O</div>
+              <div tabindex="0" class="item" id="element">F</div>
+              <div tabindex="0" class="item" id="element">Ne</div>
+            </div>
+          </div>
+          <div class="wrapper">
+            <div class="wrapper">
+              <div tabindex="0" class="item" id="element">Mg</div>
+              <div tabindex="0" class="item" id="element">Mg</div>
+            </div>
+            <div class="wrapper align-right">
+              <div tabindex="0" class="item" id="element">Al</div>
+              <div tabindex="0" class="item" id="element">Si</div>
+              <div tabindex="0" class="item" id="element">P</div>
+              <div tabindex="0" class="item" id="element">S</div>
+              <div tabindex="0" class="item" id="element">Cl</div>
+              <div tabindex="0" class="item" id="element">Ar</div>
+            </div>
+          </div>
+          <div class="wrapper1">
+            <div class="wrapper1">
+              <div tabindex="0" class="item" id="element">K</div>
+              <div tabindex="0" class="item" id="element">Ca</div>
+            </div>
+            <div class="wrapper">
+              <div tabindex="0" class="item" id="element">Sc</div>
+              <div tabindex="0" class="item" id="element">Ti</div>
+              <div tabindex="0" class="item" id="element">V</div>
+              <div tabindex="0" class="item" id="element">Cr</div>
+              <div tabindex="0" class="item" id="element">Mn</div>
+              <div tabindex="0" class="item" id="element">Fe</div>
+              <div tabindex="0" class="item" id="element">Co</div>
+              <div tabindex="0" class="item" id="element">Ni</div>
+              <div tabindex="0" class="item" id="element">Cu</div>
+              <div tabindex="0" class="item" id="element">Zn</div>
+            </div>
+            <div class="wrapper1 align-right">
+              <div tabindex="0" class="item" id="element">Ga</div>
+              <div tabindex="0" class="item" id="element">Ge</div>
+              <div tabindex="0" class="item" id="element">As</div>
+              <div tabindex="0" class="item" id="element">Se</div>
+              <div tabindex="0" class="item" id="element">Br</div>
+              <div tabindex="0" class="item" id="element">Kr</div>
+            </div>
+          </div>
+          <div class="wrapper1">
+            <div class="wrapper1">
+              <div tabindex="0" class="item" id="element">Rb</div>
+              <div tabindex="0" class="item" id="element">Sr</div>
+            </div>
+            <div class="wrapper">
+              <div tabindex="0" class="item" id="element">Y</div>
+              <div tabindex="0" class="item" id="element">Zr</div>
+              <div tabindex="0" class="item" id="element">Nb</div>
+              <div tabindex="0" class="item" id="element">Mo</div>
+              <div tabindex="0" class="item" id="element">Tc</div>
+              <div tabindex="0" class="item" id="element">Ru</div>
+              <div tabindex="0" class="item" id="element">Rh</div>
+              <div tabindex="0" class="item" id="element">Pd</div>
+              <div tabindex="0" class="item" id="element">Ag</div>
+              <div tabindex="0" class="item" id="element">Cd</div>
+            </div>
+            <div class="wrapper1 align-right">
+              <div tabindex="0" class="item" id="element">In</div>
+              <div tabindex="0" class="item" id="element">Sn</div>
+              <div tabindex="0" class="item" id="element">Sb</div>
+              <div tabindex="0" class="item" id="element">Te</div>
+              <div tabindex="0" class="item" id="element">I</div>
+              <div tabindex="0" class="item" id="element">Xe</div>
+            </div>
+          </div>
+          <div class="wrapper1">
+            <div class="wrapper1">
+              <div tabindex="0" class="item" id="element">Cs</div>
+              <div tabindex="0" class="item" id="element">Ba</div>
+            </div>
+            <div class="wrapper">
+              <div tabindex="0" class="item clear-border" id="element"></div>
+              <div tabindex="0" class="item" id="element">Hf</div>
+              <div tabindex="0" class="item" id="element">Ta</div>
+              <div tabindex="0" class="item" id="element">W</div>
+              <div tabindex="0" class="item" id="element">Re</div>
+              <div tabindex="0" class="item" id="element">Os</div>
+              <div tabindex="0" class="item" id="element">Ir</div>
+              <div tabindex="0" class="item" id="element">Pt</div>
+              <div tabindex="0" class="item" id="element">Au</div>
+              <div tabindex="0" class="item" id="element">Hg</div>
+            </div>
+            <div class="wrapper1 align-right">
+              <div tabindex="0" class="item" id="element">Tl</div>
+              <div tabindex="0" class="item" id="element">Pb</div>
+              <div tabindex="0" class="item" id="element">Bi</div>
+              <div tabindex="0" class="item" id="element">Po</div>
+              <div tabindex="0" class="item" id="element">At</div>
+              <div tabindex="0" class="item" id="element">Rn</div>
+            </div>
+          </div>
+          <div class="wrapper1">
+            <div class="wrapper1">
+              <div tabindex="0" class="item" id="element">Fr</div>
+              <div tabindex="0" class="item" id="element">Ra</div>
+            </div>
+            <div class="wrapper">
+              <div tabindex="0" class="item clear-border" id="element"></div>
+              <div tabindex="0" class="item" id="element">Rf</div>
+              <div tabindex="0" class="item" id="element">Db</div>
+              <div tabindex="0" class="item" id="element">Sg</div>
+              <div tabindex="0" class="item" id="element">Bh</div>
+              <div tabindex="0" class="item" id="element">Hs</div>
+              <div tabindex="0" class="item" id="element">Mt</div>
+              <div tabindex="0" class="item" id="element">Ds</div>
+              <div tabindex="0" class="item" id="element">Rg</div>
+              <div tabindex="0" class="item" id="element">Cn</div>
+            </div>
+            <div class="wrapper1 align-right">
+              <div tabindex="0" class="item" id="element">Nh</div>
+              <div tabindex="0" class="item" id="element">Fl</div>
+              <div tabindex="0" class="item" id="element">Mc</div>
+              <div tabindex="0" class="item" id="element">Lv</div>
+              <div tabindex="0" class="item" id="element">Ts</div>
+              <div tabindex="0" class="item" id="element">Og</div>
+            </div>
+          </div>
+        </aside>
+        <br /><br />
+        <aside class="botelements relative m-10 left-5">
+          <div class="shift-right">
+            <div class="wrapper">
+              <div tabindex="0" class="item" id="element">La</div>
+              <div tabindex="0" class="item" id="element">Ce</div>
+              <div tabindex="0" class="item" id="element">Pr</div>
+              <div tabindex="0" class="item" id="element">Nd</div>
+              <div tabindex="0" class="item" id="element">Pm</div>
+              <div tabindex="0" class="item" id="element">Sm</div>
+              <div tabindex="0" class="item" id="element">Eu</div>
+              <div tabindex="0" class="item" id="element">Gd</div>
+              <div tabindex="0" class="item" id="element">Tb</div>
+              <div tabindex="0" class="item" id="element">Dy</div>
+              <div tabindex="0" class="item" id="element">Ho</div>
+              <div tabindex="0" class="item" id="element">Er</div>
+              <div tabindex="0" class="item" id="element">Tm</div>
+              <div tabindex="0" class="item" id="element">Yb</div>
+              <div tabindex="0" class="item" id="element">Lu</div>
+            </div>
+            <div class="wrapper">
+              <div tabindex="0" class="item" id="element">Ac</div>
+              <div tabindex="0" class="item" id="element">Th</div>
+              <div tabindex="0" class="item" id="element">Pa</div>
+              <div tabindex="0" class="item" id="element">U</div>
+              <div tabindex="0" class="item" id="element">Np</div>
+              <div tabindex="0" class="item" id="element">Pu</div>
+              <div tabindex="0" class="item" id="element">Am</div>
+              <div tabindex="0" class="item" id="element">Cm</div>
+              <div tabindex="0" class="item" id="element">Bk</div>
+              <div tabindex="0" class="item" id="element">Cf</div>
+              <div tabindex="0" class="item" id="element">Es</div>
+              <div tabindex="0" class="item" id="element">Fm</div>
+              <div tabindex="0" class="item" id="element">Md</div>
+              <div tabindex="0" class="item" id="element">No</div>
+              <div tabindex="0" class="item" id="element">Lr</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </details> -->
 
     <script src="./src/javascript.js"></script>
   </body>
