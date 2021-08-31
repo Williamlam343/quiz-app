@@ -12,13 +12,16 @@ var answerC = document.querySelector("#answer-c")
 var answerD = document.querySelector("#answer-d")
 var scoreRecorder = document.querySelector("#scoreRecord")
 var scoreInput = document.querySelector("#names")
+var initials = document.querySelector("#initials")
+var hiScore = document.querySelector("#hiScore")
 
 // Used to display the question
-
-let startTime = 30
+let n = 0;
+let startTime = 10
 let score = 0;
 let i = 0
-
+var highScoreName = []
+var highScoreNum = []
 const quizquestions = [{
     question: "Hydrogen is an element?",
     a: "True",
@@ -77,17 +80,13 @@ function quizApp() {
     // THEN a timer starts and I am presented with a question
     //counter that starts from 120 counts down; if user gets a question wrong subtract -5
     //timer starts when startbtn is clicked
-    questionDisplay.textContent = `Question #${i + 1}: ${quizquestions[i].question} `;
-    answerA.textContent = `A. ${quizquestions[i].a} `;
-    answerB.textContent = `B. ${quizquestions[i].b} `;
-    answerC.textContent = `C. ${quizquestions[i].c} `;
-    answerD.textContent = `D. ${quizquestions[i].d} `;
+    startbtn.setAttribute("style", "visibility:hidden")
 
 
     var timer = setInterval(() => {
         startTime--;
         timehtml.textContent = `${startTime} seconds remaining`
-        startbtn.setAttribute("style", "display:none")
+
 
 
         if (startTime < 0) {
@@ -103,6 +102,8 @@ function quizApp() {
             answerB.textContent = ``;
             answerC.textContent = ``;
             answerD.textContent = ``;
+
+
         }
 
     }, 1000);
@@ -145,26 +146,75 @@ function quizApp() {
     // THEN the game is over
     //TODO WHEN the game is over
     // THEN I can save my initials and my score
-
+    questionDisplay.textContent = `Question #${i + 1}: ${quizquestions[i].question} `;
+    answerA.textContent = `A. ${quizquestions[i].a} `;
+    answerB.textContent = `B. ${quizquestions[i].b} `;
+    answerC.textContent = `C. ${quizquestions[i].c} `;
+    answerD.textContent = `D. ${quizquestions[i].d} `;
 }
-var highScoreArr = []
+
+
+
 scoreRecorder.addEventListener("submit", function (event) {
     event.preventDefault()
     var scoreName = scoreInput.value
 
-    console.log(scoreInput.value)
+
     if (scoreName === "") { return; }
     else {
 
-        highScoreArr.push(scoreName)
-        localStorage.setItem("names", JSON.stringify(highScoreArr))
+        highScoreName.push(scoreName) || 0
+        highScoreNum.push(score) || 0
+        highScoreAdd();
     }
+
 
 })
 
 
+function highScoreAdd() {
 
 
 
+    let highNum = highScoreNum[n]
+    let highName = highScoreName[n]
+
+    var numP = document.createElement("p")
+    numP.textContent = highNum
+
+    var nameP = document.createElement("p")
+    nameP.textContent = highName
+
+    hiScore.appendChild(numP)
+    initials.appendChild(nameP)
+    n++;
+
+    var hiScoreStorage = [{
+        name: highScoreName,
+        score: highScoreNum,
+    }];
+
+    localStorage.setItem("scores", JSON.stringify(hiScoreStorage))
+
+
+
+}
+var savedHighScore = JSON.parse(localStorage.getItem("scores"))
+function savedHiScore() {
+    for (let i = 0; i < savedHiScore.length; i++) {
+
+
+        let highNum = savedHighScore[i].score[i]
+        let highName = savedHighScore[i].name[i]
+        var numP = document.createElement("p")
+        numP.textContent = highNum
+        var nameP = document.createElement("p")
+        nameP.textContent = highName
+        hiScore.appendChild(numP)
+        initials.appendChild(nameP)
+    }
+}
+
+savedHiScore()
 startbtn.addEventListener("click", quizApp)
 
