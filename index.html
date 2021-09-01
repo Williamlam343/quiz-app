@@ -118,52 +118,53 @@
       </button>
     </section>
 
-    <div class="text-center m-5">
-     <form id="scoreRecord" method="POST">
-        <input id="names"
-        type="textarea"
-        placeholder="initials"
-        class="text-center text-black"
-         />
-        </form>
+    <div class="text-center inputBox">
+      <form id="scoreRecord" class="" method="POST">
+        <input
+          id="names"
+          type="textarea"
+          placeholder="initials"
+          class="text-center invisible text-black"
+        />
+      </form>
     </div>
 
     <div class="flex text-regular justify-center">
-     <details class="text-white  relative m-1 text-center">
-      <div class="">Hi-Scores:</div>
-      <div
-        class="
-        shadow-2xl
-          align-center
-          flex
-          relative
-          max-w-min
-          text-regular text-black
-          ring-4 ring-white ring-opacity-50
-          justify-center
-          my-2
-          rounded-xl
-        "
-      >
+      <div class="text-white relative m-1 text-center">
+        <div class="">Hi-Scores:</div>
         <div
-          id="initials"
           class="
-            flex-auto
+            shadow-2xl
             align-center
-            text-white
-            w-20
-            h-auto
-            bg-warmgray-600
-            rounded-l-xl
+            flex
+            relative
+            max-w-min
+            text-regular text-black
+            ring-4 ring-white ring-opacity-50
+            justify-center
+            my-2
+            rounded-xl
           "
         >
-        </div>
-        <div id="hiScore" class="flex-auto w-40 h-auto rounded-r-xl bg-warmgray-200">
-     
+          <div
+            id="initials"
+            class="
+              flex-auto
+              align-center
+              text-white
+              w-20
+              h-auto
+              bg-warmgray-600
+              rounded-l-xl
+            "
+          ></div>
+          <div
+            id="hiScore"
+            class="flex-auto w-40 h-auto rounded-r-xl bg-warmgray-200"
+          ></div>
         </div>
       </div>
     </div>
-    </details>
 
     <!-- <details class="text-white relative m-5 h-auto w-auto text-center">
       <div class="flex justify-center w-auto flex-wrap ptchart">
