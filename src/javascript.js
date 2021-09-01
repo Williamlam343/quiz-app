@@ -1,5 +1,3 @@
-// GIVEN I am taking a code quiz
-//TODO WHEN I click the start button
 
 var startbtn = document.querySelector("#startbtn")
 var timehtml = document.querySelector("#time")
@@ -15,13 +13,13 @@ var scoreInput = document.querySelector("#names")
 var initials = document.querySelector("#initials")
 var hiScore = document.querySelector("#hiScore")
 
-// Used to display the question
 let n = 0;
 let i = 0;
 var highScoreName = []
 var highScoreNum = []
-let score = 0;
+var score = 0;
 let startTime = 60;
+// Questions Array
 const quizquestions = [{
     question: "Hydrogen is an element?",
     a: "True",
@@ -30,26 +28,26 @@ const quizquestions = [{
     d: "????",
     answer: "a",
 }, {
-    question: "Lol is an element?",
-    a: "True",
-    b: "False",
-    c: "Maybe",
-    d: "????",
+    question: "How many protons are in hydrogen",
+    a: "0",
+    b: "1",
+    c: "2",
+    d: "3",
     answer: "b",
 }, {
     question: "AgCl is a compound?",
-    a: "True",
-    b: "False",
-    c: "Maybe",
-    d: "????",
+    a: "Yes",
+    b: "No",
+    c: "It's a mixture",
+    d: "It's a solution",
     answer: "a",
 }, {
-    question: "Chlorine is an element?",
-    a: "True",
-    b: "False",
-    c: "Maybe",
-    d: "????",
-    answer: "a",
+    question: "What is the symbol for Chlorine?",
+    a: "Ce",
+    b: "Cl",
+    c: "Chl",
+    d: "Cie",
+    answer: "b",
 }, {
     question: "Sodium is an element?",
     a: "True",
@@ -64,14 +62,86 @@ const quizquestions = [{
     c: "Maybe",
     d: "????",
     answer: "a",
+}, {
+    question: "How many rows does a Periodic Table have?",
+    a: "9",
+    b: "8",
+    c: "7",
+    d: "6",
+    answer: "c",
+}, {
+    question: "Balance: _ Na + _ Cl2 => _ NaCl?",
+    a: "1, 2, 1",
+    b: "2, 1, 2",
+    c: "0 0 0",
+    d: "2, 2, 2",
+    answer: "b",
+}, {
+    question: "How many siginificant figures does 2.10cm have?",
+    a: "None",
+    b: "1",
+    c: "2",
+    d: "3",
+    answer: "d",
+}, {
+    question: "What is the atomic number for Uranium",
+    a: "94",
+    b: "93",
+    c: "92",
+    d: "91",
+    answer: "d",
+}, {
+    question: "Chemistry is fun",
+    a: "True!!",
+    b: "FALSE!",
+    c: "??????",
+    d: ".",
+    answer: "a",
+}, {
+    question: "Name this compound: CaO",
+    a: "OxiCalcide",
+    b: "Potato",
+    c: "Calcium Oxide",
+    d: "Calcium Acetate",
+    answer: "c",
+}, {
+    question: "Which one these is an Acid",
+    a: "LiCl",
+    b: "MgS",
+    c: "MgO",
+    d: "HCl",
+    answer: "d",
+}, {
+    question: "Which of these have the highest molecular weight?",
+    a: "H",
+    b: "Fr",
+    c: "Al",
+    d: "Fe",
+    answer: "b",
+}, {
+    question: "What is the second column of the periodic table called?",
+    a: "Alkali Metals",
+    b: "Alkaline Earth Metals",
+    c: "Nobel Gases",
+    d: "None of the above",
+    answer: "d",
+}, {
+    question: "Which of these is a Halogen",
+    a: "I",
+    b: "Cl",
+    c: "Br",
+    d: "All of the above",
+    answer: "d",
 }]
 
 // initializes the game
-
 function startGame() {
+
     startTime = 60;
-    score = 0
-    i = 0
+    score = 0;
+    i = 0;
+    timehtml.textContent = `60 seconds remaining`
+    scorehtml.textContent = `Score: 0`
     question.setAttribute("style", "visibility:visible")
     answerA.setAttribute("style", "visibility:visible")
     answerB.setAttribute("style", "visibility:visible")
@@ -80,6 +150,7 @@ function startGame() {
     quizApp()
 }
 
+// quiz function to start timer and switch questions
 function quizApp() {
     // THEN a timer starts and I am presented with a question
     //counter that starts from 120 counts down; if user gets a question wrong subtract -5
@@ -129,7 +200,7 @@ function quizApp() {
                 i++;
 
                 if (i >= quizquestions.length) { i = 0; };
-                questionDisplay.textContent = `Question #${i + 1}: ${quizquestions[i].question} `;
+                questionDisplay.textContent = `Question: ${quizquestions[i].question} `;
                 answerA.textContent = `A. ${quizquestions[i].a} `;
                 answerB.textContent = `B. ${quizquestions[i].b} `;
                 answerC.textContent = `C. ${quizquestions[i].c} `;
@@ -137,12 +208,12 @@ function quizApp() {
             }
         })
     }
-
-    questionDisplay.textContent = `Question #${i + 1}: ${quizquestions[i].question} `;
+    questionDisplay.textContent = `Question: ${quizquestions[i].question} `;
     answerA.textContent = `A. ${quizquestions[i].a} `;
     answerB.textContent = `B. ${quizquestions[i].b} `;
     answerC.textContent = `C. ${quizquestions[i].c} `;
     answerD.textContent = `D. ${quizquestions[i].d} `;
+
 }
 
 
@@ -186,9 +257,6 @@ function highScoreAdd() {
 
 
 }
-
-
-
 
 
 function savedHiScore() {
