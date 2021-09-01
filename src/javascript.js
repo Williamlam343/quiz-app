@@ -229,9 +229,7 @@ scoreRecorder.addEventListener("submit", function (event) {
         highScoreNum.push(score) || 0
         highScoreAdd();
 
-
     }
-
 
 })
 
