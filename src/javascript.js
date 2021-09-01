@@ -19,6 +19,7 @@ var highScoreName = []
 var highScoreNum = []
 var score = 0;
 let startTime = 60;
+
 // Questions Array
 const quizquestions = [{
     question: "Hydrogen is an element?",
@@ -225,8 +226,8 @@ scoreRecorder.addEventListener("submit", function (event) {
     startbtn.setAttribute("style", "visibility:visible")
     if (scoreName === "") { return; }
     else {
-        highScoreName.push(scoreName) || 0
-        highScoreNum.push(score) || 0
+        highScoreName.push(scoreName)
+        highScoreNum.push(score)
         highScoreAdd();
 
     }
@@ -259,7 +260,7 @@ function highScoreAdd() {
 
 function savedHiScore() {
     scoreHi = JSON.parse(localStorage.getItem("score"))
-
+    if (scoreHi === null) { return }
     for (let i = 0; i < scoreHi.name[0].length; i++) {
 
         scoreHi.num.sort((a, b) => b - a)
