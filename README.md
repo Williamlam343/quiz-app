@@ -8,4 +8,4 @@ You start with 60seconds and lose 5 seconds every question you get wrong. You sc
 ### Remember to record your scores
 
 <br>
-![img of quiz app](https://github.com/Williamlam343/quiz-app/blob/main/src/img/quiz-app.png)
+![img of quiz app] (https://github.com/Williamlam343/quiz-app/blob/main/src/img/quiz-app.png)
