@@ -153,8 +153,7 @@ function startGame() {
 
 // quiz function to start timer and switch questions
 function quizApp() {
-    // THEN a timer starts and I am presented with a question
-    //counter that starts from 120 counts down; if user gets a question wrong subtract -5
+    // THEN a timer starts and I am presented with a questio
     //timer starts when startbtn is clicked
     startbtn.setAttribute("style", "visibility:hidden")
 
@@ -218,7 +217,10 @@ function quizApp() {
 }
 
 
-
+// listens for initials to be enter and brings back the start button
+// if blank doesn't fire
+// pushes the score and initials into highScoreNam highscoreNum arrays
+// runs highScoreAddfunction
 scoreRecorder.addEventListener("submit", function (event) {
     event.preventDefault()
     var scoreName = scoreInput.value
@@ -234,7 +236,9 @@ scoreRecorder.addEventListener("submit", function (event) {
 
 })
 
-
+// adds the highscoreNam highscoreNum arrays into an object that will be created and appended 
+// on to the html page.
+// the object is then also stored into local storage
 function highScoreAdd() {
 
     var scoreHi = {
@@ -257,10 +261,13 @@ function highScoreAdd() {
 
 }
 
-
+// grabs the object from local storage and creates and appends it into the high section of the html page
+// when the page is loaded
 function savedHiScore() {
     scoreHi = JSON.parse(localStorage.getItem("score"))
+
     if (scoreHi === null) { return }
+
     for (let i = 0; i < scoreHi.name[0].length; i++) {
 
         scoreHi.num.sort((a, b) => b - a)
@@ -275,7 +282,9 @@ function savedHiScore() {
 
     }
 }
-
+// runs the savedHifunction as soon as the page is loaded
+// displays the hiscores at the bottom
 savedHiScore()
+// runs the game when start is pressed
 startbtn.addEventListener("click", startGame)
 
